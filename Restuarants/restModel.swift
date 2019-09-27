@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Rests {
+class Rests {
     
     private static var _shared:Rests!
     static var shared:Rests{
@@ -28,10 +28,17 @@ struct Rests {
         return rests[i]
     }
     
-    var rests = [Rest(name: "Subway", hours: "10-12"),
+    private var rests = [Rest(name: "Subway", hours: "10-12"),
                  Rest(name: "Jimmy John's", hours: "10-12"),
                  Rest(name: "Applebee's", hours: "10-12")]
-        
+    
+    func deleteRest(index:Int){
+        rests.remove(at: index)
+    }
+    
+    func addRest(rest:Rest){
+        rests.append(rest)
+    }
 }
 
 struct Rest{

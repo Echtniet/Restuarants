@@ -10,16 +10,35 @@ import UIKit
 
 class RestTableViewController: UITableViewController {
     
-    
+    let rowHeight:CGFloat = 75.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Restuarant of Maryville!"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        
+    }
+    @objc func add(){
+        let ac = UIAlertController(title: "Add Rest", message: "Please", preferredStyle: .alert)
+        ac.addTextField(configurationHandler: nil)
+        ac.addTextField(configurationHandler: nil)
+        ac.textFields![0].placeholder = "Name"
+        ac.textFields![1].placeholder = "Hours"
+        let action = UIAlertAction(title: "Ok", style: .default){
+            (action) -> Void in
+            let name = ac.textFields![0].text
+            let hours = ac.textFields![1].text
+            let rest = Rest(name:name!, hours: hours!)
+            Rests.shared.addRest(rest:rest)
+            self.tableView.reloadData()
+        }
+        ac.addAction(action)
+        self.present(ac, animated: true)
+        
         
         
     }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,7 +63,9 @@ class RestTableViewController: UITableViewController {
         
         return cell
     }
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return rowHeight
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -54,17 +75,17 @@ class RestTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
+    
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            Rests.shared.deleteRest(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
