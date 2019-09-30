@@ -13,6 +13,7 @@
 		C88CE9DE233934A500250CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C88CE9DD233934A500250CA8 /* Assets.xcassets */; };
 		C88CE9E1233934A500250CA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C88CE9DF233934A500250CA8 /* LaunchScreen.storyboard */; };
 		C88CE9E9233934D800250CA8 /* RestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88CE9E8233934D800250CA8 /* RestTableViewController.swift */; };
+		C8DE168A2342718F00881615 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DE16892342718F00881615 /* MenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C88CE9E0233934A500250CA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C88CE9E2233934A500250CA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C88CE9E8233934D800250CA8 /* RestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestTableViewController.swift; sourceTree = "<group>"; };
+		C8DE16892342718F00881615 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				C88CE9E2233934A500250CA8 /* Info.plist */,
 				C88CE9E8233934D800250CA8 /* RestTableViewController.swift */,
 				C86E8589233BD8550091DD83 /* restModel.swift */,
+				C8DE16892342718F00881615 /* MenuTableViewController.swift */,
 			);
 			path = Restuarants;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8DE168A2342718F00881615 /* MenuTableViewController.swift in Sources */,
 				C86E858A233BD8550091DD83 /* restModel.swift in Sources */,
 				C88CE9D7233934A500250CA8 /* AppDelegate.swift in Sources */,
 				C88CE9E9233934D800250CA8 /* RestTableViewController.swift in Sources */,
