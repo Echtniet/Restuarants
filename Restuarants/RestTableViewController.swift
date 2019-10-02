@@ -21,7 +21,12 @@ class RestTableViewController: UITableViewController {
         
     }
     @objc func add(){
-        let ac = UIAlertController(title: "Add Rest", message: "Please", preferredStyle: .alert)
+        
+        var vcNewitem = storyboard!.instantiateViewController(withIdentifier: "newrest")
+        
+        self.present(vcNewitem, animated: true, completion: nil)
+        self.tableView.reloadData()
+        /*let ac = UIAlertController(title: "Add Rest", message: "Please", preferredStyle: .alert)
         ac.addTextField(configurationHandler: nil)
         ac.addTextField(configurationHandler: nil)
         ac.textFields![0].placeholder = "Name"
@@ -36,7 +41,7 @@ class RestTableViewController: UITableViewController {
         }
         ac.addAction(action)
         self.present(ac, animated: true)
-        
+        */
         
         
     }
