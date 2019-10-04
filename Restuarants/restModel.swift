@@ -28,9 +28,9 @@ class Rests {
         return rests[i]
     }
     
-    private var rests = [Rest(name: "Subway", hours: "10-12"),
-                 Rest(name: "Jimmy John's", hours: "10-12"),
-                 Rest(name: "Applebee's", hours: "10-12")]
+    private var rests = [Rest(name: "Subway", hours: "10-12", menu: ["4"]),
+                 Rest(name: "Jimmy John's", hours: "10-12", menu: ["4"]),
+                 Rest(name: "Applebee's", hours: "10-12", menu: ["6", "8"])]
     
     func deleteRest(index:Int){
         rests.remove(at: index)
@@ -44,4 +44,5 @@ class Rests {
 struct Rest{
     var name:String
     var hours:String
+    var menu:[String]
 }

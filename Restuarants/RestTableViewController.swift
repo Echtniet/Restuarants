@@ -16,11 +16,17 @@ class RestTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationItem.title = "Restuarant of Maryville!"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Rests", style: .plain, target: nil, action: nil)
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         
     }
     @objc func add(){
-        let ac = UIAlertController(title: "Add Rest", message: "Please", preferredStyle: .alert)
+        
+        var vcNewitem = storyboard!.instantiateViewController(withIdentifier: "newrest")
+        
+        self.present(vcNewitem, animated: true, completion: nil)
+        self.tableView.reloadData()
+        /*let ac = UIAlertController(title: "Add Rest", message: "Please", preferredStyle: .alert)
         ac.addTextField(configurationHandler: nil)
         ac.addTextField(configurationHandler: nil)
         ac.textFields![0].placeholder = "Name"
@@ -29,13 +35,13 @@ class RestTableViewController: UITableViewController {
             (action) -> Void in
             let name = ac.textFields![0].text
             let hours = ac.textFields![1].text
-            let rest = Rest(name:name!, hours: hours!)
+            let rest = Rest(name:name!, hours: hours!, menu: [])
             Rests.shared.addRest(rest:rest)
             self.tableView.reloadData()
         }
         ac.addAction(action)
         self.present(ac, animated: true)
-        
+        */
         
         
     }
@@ -86,6 +92,13 @@ class RestTableViewController: UITableViewController {
         }    
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var tvcMenu = storyboard!.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
+        
+        tvcMenu.rest = Rests.shared[indexPath.row]
+        
+        self.navigationController!.pushViewController(tvcMenu, animated: true)
+    }
 
     /*
     // Override to support rearranging the table view.
